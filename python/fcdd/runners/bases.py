@@ -102,6 +102,7 @@ class BaseRunner(object):
         )
         try:
             trainer = SuperTrainer(**setup)
+            print("EPOCHS:", epochs)
             trainer.train(epochs, load, acc_batches=acc_batches)
             if self._test and (epochs > 0 or load is not None):
                 x = trainer.test(viz_ids)
