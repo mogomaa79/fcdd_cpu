@@ -191,7 +191,7 @@ class DefaultMvtecConfig(DefaultConfig):
         parser = super().__call__(parser)
         parser.set_defaults(
             batch_size=16, acc_batches=8, supervise_mode='malformed_normal',
-            gauss_std=12, weight_decay=1e-4, epochs=1, preproc='lcnaug1',
+            gauss_std=12, weight_decay=1e-4, epochs=10, preproc='lcnaug1',
             quantile=0.99, net='FCDD_CNN224_VGG_F', dataset='mvtec', noise_mode='confetti'
         )
 
