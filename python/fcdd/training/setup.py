@@ -99,7 +99,7 @@ def trainer_setup(
     assert objective in OBJECTIVES, 'unknown objective: {}'.format(objective)
     assert supervise_mode in SUPERVISE_MODES, 'unknown supervise mode: {}'.format(supervise_mode)
     assert noise_mode in MODES, 'unknown noise mode: {}'.format(noise_mode)
-    device = torch.device('cuda:0') if cuda else torch.device('cpu')
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     logger = Logger(pt.abspath(pt.join(logdir, '')), exp_start_time=log_start_time)
     ds = load_dataset(
         dataset, pt.abspath(pt.join(datadir, '')), normal_class, preproc, supervise_mode,
